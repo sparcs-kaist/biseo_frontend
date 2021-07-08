@@ -3,6 +3,7 @@ import { device, size } from '@/utils/device';
 
 export const UserMainContainer = styled.div`
   column-gap: 30px;
+  padding-top: 60px;
   display: grid;
   grid-template-areas:
     'chat'
@@ -23,14 +24,12 @@ export const UserMainContainer = styled.div`
     grid-area: chat;
   }
 
-  & > .admin {
-    grid-area: admin;
-  }
-
   @media ${device.laptop} {
+    padding-top: 60px;
     grid-template-columns: 3fr 4fr;
-    grid-template-rows: 90vh;
+    grid-template-rows: auto;
     grid-template-areas: 'agendas chat';
+    height: 80vh;
   }
 
   @media ${device.laptopL} {
@@ -41,6 +40,7 @@ export const UserMainContainer = styled.div`
 
 export const AdminMainContainer = styled.div`
   display: grid;
+  padding-top: 60px;
   grid-template-areas:
     'chat'
     'admin'
@@ -50,6 +50,14 @@ export const AdminMainContainer = styled.div`
   row-gap: 30px;
   margin: 0 8vh;
 
+  & > .Navbar {
+    grid-area: Navbar;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
   & > .agendas {
     grid-area: agendas;
     display: flex;
@@ -60,6 +68,7 @@ export const AdminMainContainer = styled.div`
 
   & > .chat {
     grid-area: chat;
+    height: 100%;
   }
 
   & > .admin {
@@ -67,20 +76,23 @@ export const AdminMainContainer = styled.div`
   }
 
   @media ${device.laptop} {
+    padding-top: 60px;
     grid-template-columns: 3fr 4fr;
-    grid-template-rows: auto;
+    grid-template-rows: 40vh auto;
     grid-template-areas:
       'admin      chat'
       'agendas chat';
+    height: 80vh;
   }
 
   @media ${device.laptopL} {
+    padding-top: 60px;
     grid-template-columns: 3fr 4fr;
-    grid-template-rows: auto;
+    grid-template-rows: 40vh auto;
     grid-template-areas:
       'admin      chat'
       'agendas chat';
-
+    height: 80vh;
     max-width: ${size.laptopL};
     margin: 0 auto;
   }

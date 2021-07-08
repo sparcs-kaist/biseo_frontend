@@ -106,7 +106,10 @@ const Main: React.FC = () => {
     : agendas.filter(agenda => agenda.status != AgendaStatus.PREPARE);
   return (
     <div>
-      <button onClick={() => setIsAdmin(prevState => !prevState)}>
+      <button
+        style={{ zIndex: 100 }}
+        onClick={() => setIsAdmin(prevState => !prevState)}
+      >
         {isAdmin ? 'To User' : 'To Admin'}
       </button>
       <MainComponent socket={socket} agendas={filteredAgendas} />
